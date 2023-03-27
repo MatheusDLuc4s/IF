@@ -1,0 +1,171 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class 27_03 : MonoBehaviour
+{
+    [Header("lanchonete")]
+    public int comido ;
+    private float preco_C ; 
+    public int bebido ;
+    private  float preco_B ;
+    private float total;
+
+    [Header("Refrigerante")]
+    public int cod;
+    public int tipo;
+    public int quant;
+    private float preco;
+    private float valor_total = 0;
+
+
+    public void lanchote ()
+    {
+        switch(comido)
+        {
+            case 100:
+                print("cachorro quente");
+                preco_C = 8.5F;
+                break;
+
+            case 101:
+                print("Bauru simples");
+                preco_C = 13.5F;
+                break;
+
+            case 102:
+                print("Bauru com ovo");
+                preco_C = 15.5F;
+                break;
+
+            case 103:
+                print("hambúrguer");
+                preco_C = 12F;
+                break;
+
+
+
+        }
+
+        switch(bebido)
+        {
+            case 200:
+                print("refrigerante");
+                preco_B = 4F;
+                break;
+
+            case 201:
+                print("suco");
+                preco_B = 4.5F;
+                break;
+
+            case 202:
+                print("água mineral");
+                preco_B = 1.5F;
+                break;
+
+            case 203:
+                print("cerveja");
+                preco_B = 5F;
+                break;
+
+        }
+
+        total = preco_B + preco_C;
+        print("O total deu: " + total);
+    }     
+    
+    
+    public void Refrigerante ()
+    {
+        if(cod == 1)
+        {
+            print("você selecionou coca");
+            if(tipo == 1)
+            {
+                print("você selecionou normal");
+                preco = 3.60F;
+                valor_total = preco * quant;               
+            }
+
+            else if(tipo == 2)
+            {
+                print("você selecionou diet");
+                preco = 3.70F;
+                valor_total = preco * quant;
+            }
+            else
+            {
+                print("cod invalido");
+                return;
+            }
+        }
+
+        else if(cod == 2)
+        {
+            print("você selecionou Fanta");
+            if(tipo == 1)
+            {
+                print("você selecionou normal");
+                preco = 3.40F;
+                valor_total = preco * quant;             
+            }
+
+            else if(tipo == 2)
+            {
+                print("você selecionou diet");
+                preco = 3.50F;
+                valor_total = preco * quant;
+            }
+
+            else
+            {
+                print("cod invalido");
+                return;
+            }
+        }
+
+        else if(cod == 3)
+        {
+            print("você selecionou antartica");
+            if(tipo == 1)
+            {
+                print("você selecionou normal");
+                preco = 3.30F;
+                valor_total = preco * quant;               
+            }
+
+            else if(tipo == 2)
+            {
+                print("você selecionou diet");
+                preco = 3.20F;
+                valor_total = preco * quant;
+                
+            }
+
+            else
+            {
+                print("cod invalido");
+                return;
+            }
+
+        
+        }        
+        else
+        {
+            print("cod invalido");
+            return;
+        }
+        if (valor_total != 0)
+            if(valor_total > 100)
+            {
+                valor_total = valor_total * .95F;
+                print("deu: " + valor_total);
+            }
+            else
+            {
+                print("deu: " + valor_total);
+            }
+    }
+}
